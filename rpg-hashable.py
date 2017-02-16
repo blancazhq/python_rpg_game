@@ -33,7 +33,10 @@ class Character(object):
 
 class Hero(Character):
 
+
     def __init__(self):
+        items = [Tonic(), Sword(), Supertonic(), Armer(), Evade(), Darktonic(), Swap()]
+
         self.name = 'hero'
         self.health = 15
         self.power = 5
@@ -41,7 +44,8 @@ class Hero(Character):
         self.armorpoints = 0
         self.evadepoints = 5
         self.darkpoints = 0
-        self.stuff = {7353945562375703106:[], 3333949250057980342:[], 1004237946341751562:[], 4709300584625918218:[], 4285119785132380782:[], 1714205824296262066:[], -1840385907632881611:[]}
+        self.stuff = {items[0].__hash__():[], items[1].__hash__():[], items[2].__hash__():[], items[3].__hash__():[], items[4].__hash__():[], items[5].__hash__():[], items[6].__hash__():[]}
+
 
     def attack(self, enemy):
         if not self.alive():
@@ -197,7 +201,8 @@ class Randomit (Character):
 class Battle(object):
 
     def do_battle(self, hero, enemy):
-        items = [Tonic, Sword, Supertonic, Armer, Evade, Darktonic, Swap]
+        items = [Tonic(), Sword(), Supertonic(), Armer(), Evade(), Darktonic(), Swap()]
+
 
         print "====================="
         print "Hero faces the %s" % enemy.name
@@ -214,7 +219,7 @@ class Battle(object):
             print "> ",
             input = int(raw_input())
             if input == 1:
-                if hero.stuff == {7353945562375703106:[], 3333949250057980342:[], 1004237946341751562:[], 4709300584625918218:[], 4285119785132380782:[], 1714205824296262066:[], -1840385907632881611:[]}:
+                if hero.stuff == {items[0].__hash__():[], items[1].__hash__():[], items[2].__hash__():[], items[3].__hash__():[], items[4].__hash__():[], items[5].__hash__():[], items[6].__hash__():[]}:
                     print "No stuff to carry for now."
                 else:
                     print "-----------------------"
@@ -366,7 +371,6 @@ item = [Tonic(), Sword(), Supertonic(), Armer(), Evade(), Darktonic(), Swap()]
 battle_engine = Battle()
 shopping_engine = Store()
 
-my_hash_list = []
 
 
 for enemy in enemies:
